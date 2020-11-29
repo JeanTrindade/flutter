@@ -1,6 +1,9 @@
 
+  
+
 
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Aluno {
   // Atributos
@@ -16,11 +19,10 @@ class Aluno {
 
   // Métodos
   double calcularMedia() {
-    var m= (_nota2 + _nota2);
-        return m/2;
+    return (_nota1 + _nota2)/2;
   }
 }
-
+ 
 void main() {
   runApp(MyApp());
 }
@@ -30,8 +32,12 @@ class MyApp extends StatelessWidget {
 
   // Construtor
   MyApp() {
-    Aluno primeiro = Aluno (5,9, "chico");
-   lista.add(primeiro);
+    Aluno primeiro = Aluno (5,9, "Chico");
+     Aluno segundo = Aluno (5,8, "Ribamar");
+     Aluno terceiro = Aluno (3,9, "Afonso");
+     lista.add(primeiro);
+     lista.add(segundo);
+     lista.add(terceiro);
   }
 
   @override
@@ -39,13 +45,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Projeto de flutter",
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomePage(lista),
     );
   }
 }
+
 
 class HomePage extends StatefulWidget {
   final List<Aluno> lista;
@@ -114,9 +121,9 @@ class NavDrawer extends StatelessWidget {
           DrawerHeader(
             child: Text(
               "Menu",
-              style: TextStyle(color: Colors.white, fontSize: 30),
+              style: TextStyle(color: Colors.black, fontSize: 30),
             ),
-            decoration: BoxDecoration(color: Colors.green),
+            decoration: BoxDecoration(color: Colors.red),
           ),
           ListTile(
             leading: Icon(Icons.person),
@@ -134,22 +141,7 @@ class NavDrawer extends StatelessWidget {
               );
             },
           ),
-          ListTile(
-            leading: Icon(Icons.person_search),
-            title: Text(
-              "Buscar por um Aluno",
-              style: TextStyle(fontSize: _fontSize),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TelaBuscarPorAluno(),
-                ),
-              );
-            },
-          ),
+          
           ListTile(
             leading: Icon(Icons.person_add_alt_1_sharp),
             title: Text(
@@ -174,10 +166,15 @@ class NavDrawer extends StatelessWidget {
             child: ListTile(
               leading: Icon(Icons.face),
               title: Text(
-                "Sobre",
+                "Informações",
                 style: TextStyle(fontSize: _fontSize),
+                
+       
               ),
-              onTap: () => {},
+              onTap: () => {
+            
+                
+              },
             ),
           ),
         ],
@@ -258,7 +255,7 @@ class _TelaInformacoesDoAluno extends State<TelaInformacoesDoAluno> {
           children: <Widget>[
             Text("Nenhum aluno encontrado!"),
             Container(
-              color: Colors.green,
+              color: Colors.red,
               child: BackButton(),
             ),
           ],
@@ -344,8 +341,9 @@ class _TelaInformacoesDoAluno extends State<TelaInformacoesDoAluno> {
             ),
             RaisedButton(
               child: Text(
-                "Atualizar Dados",
+                "Atualizar",
                 style: TextStyle(fontSize: _fontSize),
+             
               ),
               onPressed: _atualizarDados,
             ),
@@ -393,23 +391,6 @@ class _TelaInformacoesDoAluno extends State<TelaInformacoesDoAluno> {
 }
 
 //-----------------------------------------------------------------------------
-// Tela: Buscar por Aluno
-// ----------------------------------------------------------------------------
-
-class TelaBuscarPorAluno extends StatefulWidget {
-  @override
-  _TelaBuscarPorAlunoState createState() => _TelaBuscarPorAlunoState();
-}
-
-class _TelaBuscarPorAlunoState extends State<TelaBuscarPorAluno> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Buscar por Aluno")),
-    );
-  }
-}
-
 //-----------------------------------------------------------------------------
 // Tela: Cadastrar Aluno
 // ----------------------------------------------------------------------------
@@ -513,7 +494,7 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
                   hintText: "",
                 ),
                 style: TextStyle(fontSize: _fontSize),
-                controller: mediaController,
+                controller: nota2Controller,
               ),
             ),
           
@@ -545,3 +526,4 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
     );
   }
 }
+
