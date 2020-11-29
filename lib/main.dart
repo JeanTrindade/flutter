@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class Aluno {
   // Atributos
@@ -17,7 +16,8 @@ class Aluno {
 
   // Métodos
   double calcularMedia() {
-    return ((_nota2 + _nota2)/2);
+    var m= (_nota2 + _nota2);
+        return m/2;
   }
 }
 
@@ -513,7 +513,7 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
                   hintText: "",
                 ),
                 style: TextStyle(fontSize: _fontSize),
-                controller: nota2Controller,
+                controller: mediaController,
               ),
             ),
           
