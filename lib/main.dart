@@ -3,7 +3,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'dart:math';
+
 
 class Aluno {
   // Atributos
@@ -103,6 +103,29 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+class Sobre extends StatefulWidget {
+  @override
+  _Sobre createState() => _Sobre();
+}
+
+class _Sobre extends State<Sobre> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Sobre o desenvolvedor")),
+       body: Column(
+          children: <Widget>[
+            Text("Jean Trindade"),
+          
+            Text("Aplicação para calcular a media de um Aluno."),
+            
+          ],
+        ),
+    );
+  }
+}
+
+
 class NavDrawer extends StatelessWidget {
   // Atributos
   final List lista;
@@ -142,10 +165,10 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           
-          ListTile(
+         ListTile(
             leading: Icon(Icons.person_add_alt_1_sharp),
             title: Text(
-              "Cadastrar um Novo Aluno",
+              "Cadastrar aluno",
               style: TextStyle(fontSize: _fontSize),
             ),
             onTap: () {
@@ -166,22 +189,27 @@ class NavDrawer extends StatelessWidget {
             child: ListTile(
               leading: Icon(Icons.face),
               title: Text(
-                "Informações",
+                "Sobre",
                 style: TextStyle(fontSize: _fontSize),
-                
-       
               ),
-              onTap: () => {
-            
-                
-              },
-            ),
+              onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Sobre(),
+                ),
+              );
+            },
           ),
+            ),
+       
         ],
       ),
     );
   }
 }
+
 
 //-----------------------------------------------------------------------------
 // Tela Informações do Aluno
@@ -437,6 +465,7 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
       mediaController.text = "${aluno._media}";
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
