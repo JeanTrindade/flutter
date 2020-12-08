@@ -454,7 +454,7 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
     _nome = nomeController.text;
     _nota1 = double.parse(nota1Controller.text);
     _nota2 = double.parse(nota2Controller.text);
-    if (_nota1 > 0 && _nota2 > 0 && _nota1 <= 10 && _nota2 <= 0) {
+    if (_nota1 > 0 && _nota2 > 0 && _nota1 <= 10 && _nota2 <= 10) {
       var aluno = Aluno(_nota1, _nota2, _nome);
     
       lista.add(aluno);
@@ -463,7 +463,9 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
       nota1Controller.text = "";
       nota2Controller.text = "";
       mediaController.text = "${aluno._media}";
-    } 
+    } else{
+        mediaController.text = "Digite uma nota valida";
+    }
   }
 
   @override
