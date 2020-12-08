@@ -466,7 +466,6 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
     } 
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
