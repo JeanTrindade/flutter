@@ -463,9 +463,7 @@ class _TelaCadastrarAlunoState extends State<TelaCadastrarAluno> {
       nota1Controller.text = "";
       nota2Controller.text = "";
       mediaController.text = "${aluno._media}";
-    } else{
-      mediaController.text = "Valores invalidos, digite notas validas de 0 a 10.";
-    }
+    } 
   }
 
 
