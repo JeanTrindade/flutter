@@ -266,8 +266,9 @@ class _TelaInformacoesDoAluno extends State<TelaInformacoesDoAluno> {
     if (index >= 0 && index < lista.length) {
       _edicaoHabilitada = false;
       lista[index]._nome = nomeController.text;
-      lista[index]._nota1 = nota1Controller.text;
-      lista[index]._nota2 = nota2Controller.text;
+      lista[index]._nota1  = double.parse(nota1Controller.text);
+    
+      lista[index]._nota2 = double.parse(nota2Controller.text);
       lista[index]._media = lista[index].calcularMedia();
       setState(() {});
     }
